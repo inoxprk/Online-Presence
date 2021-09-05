@@ -1,0 +1,57 @@
+body {
+  background-color: #e9eae5;
+}
+a {
+  text-decoration: none;
+}
+.wrap {
+  max-width: 1132px;
+  margin: 0 auto;
+}
+.container {
+  padding: 25px 5%;
+}
+
+/* header 부분 */
+header {}
+header .container {
+  display: flex;
+  border-bottom: 1px solid #333333;
+}
+header .container .logo {}
+header .container .logo a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 75px;
+  color: #333333;
+}
+header .container nav {}
+
+/* contents 부분 */
+.content {}
+.content .container h2 {
+  font-size: 40px;
+}
+.content .container section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.content .container section .image {
+  flex-shrink: 0;
+  height: 300px;
+  width: 300px;
+}
+.content .container section .image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.content .container section p {
+  min-width: 320px;
+  max-width: 600px;
+  margin-left:20px;
+}
+.content .container .representation1 {}
+.content .container .representation2 {}
+.content .container .representation3 {}
