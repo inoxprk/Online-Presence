@@ -1,99 +1,204 @@
-/* 모바일용 css */
+/* common css */
 body {
-  background-color:#e9eae5;
+  font-family: 'PT Serif', serif;
+  font-size: 1rem;
+  color: #333;
+  background: url(../images/dotted_paper.png) repeat fixed center;
+  /* padding: 20px; */
+}
+a {
+  text-decoration: none;
   color: #333;
 }
-.divider {
-  margin:40px auto;
-  width: 50%;
-  height: 1px;
-  background-color: #333;
+
+.backboard {
+  margin:38px 20px;
+  background-color:#edeef4;
+  width: fit-content;
+  padding: 20px 0;
 }
+
+section {
+  margin-top: 95px;
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
 .container {
-  margin:0 auto;
-  max-width: 960px;
-  padding: 0 20px 0 20px;
+  max-width: 1132px;
+  margin: 0 auto;
+
 }
 
-/* 헤더 부분 css */
-header {
+/* 모바일용 CSS */
+
+/* 헤더 부분 */
+.headerbox {
+  max-width: 1132px;
+  margin: 0 20px;
+  padding:20px 0;
 }
-header::after {
-  content: "";
-  display: block;
-  margin: 10px auto 0;
-  width: 90%;
-  height: 2px;
-  background-color: #333;
+.headerbox .logo {
+  border-bottom: 1px solid #333;
 }
 
-header .container {
-  padding: 30px 0 30px;
+.headerbox .logo a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 6rem;
 }
-header .container .logo {
-  text-align: center;
+.headerbox .gnbbox {
+  padding:10px 0;
+  width: 100%;
+  border-bottom: 1px solid #333;
 }
-header .container .logo a {
-  font-family: 'Open Sans', 'sans-serif';
-  text-decoration: none;
-  font-size: 50px;
-  font-weight: 700;
-  color:#333;
-}
-
-/* 컨텐츠 부분 css */
-.content .container h1 {
-  text-align: center;
-  font-weight: bold;
-  margin-top: 40px;
-  font-size: 40px;
-}
-.content .container section:first-of-type {
-  margin-top: 40px;
-}
-.content .container section {
-  margin-top: 20px;
+.headerbox .gnbbox .gnb {
   display: flex;
-  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.headerbox .gnbbox .gnb li {}
+.headerbox .gnbbox .gnb li a{
+  padding:11px 16px;
+  font-size: 1rem;
+}
+
+/* 컨텐츠 부분 - text */
+
+.content .container {
+  display: flex; 
+  flex-wrap: wrap; /* 모바일에서만 wrap */
+  justify-content: center;
+  width: calc(100% - 40px);
+  /* 모바일만 100% - 40px */
+}
+
+.content .container .imgbox {
+  display: flex;
   justify-content: center;
 }
-.content .container section .img {
+
+.content .container .imgbox .imgframe {
   width: 100%;
-}
-.content .container section .img img {
-  width: 100%;
-  border-radius: 10px;
-}
-.content .container section .text {
-  margin-top: 20px;
-  line-height: 1.5;
 }
 
-/* 푸터 부분 css */
+.content .container .imgbox .imgframe img {
+  height: 100%;
+  width: 100%;
+}
+
+.content .container .textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  /* 모바일만 top 마진이 존재 */
+}
+
+.content .container .textbox h2 {
+  font-size: 1.5rem;
+  margin-bottom:30px;
+}
+
+.content .container .textbox p {
+  line-height: 1.8;
+}
+
+.content .container .textbox p::after { /* 모바일에만 있는 divider */
+  content: "";
+  display: block;
+  margin: 95px auto 0;
+  height: 2px;
+  width: 15%;
+  background-color:rgba(0,0,0,.2);
+}
+
+.content:last-of-type .container .textbox p::after {
+  display: none;
+}
+
+/* 푸터 부분 */
 footer {
-  height: 150px;
-  margin-top: 40px;
+  margin-top: 95px;
 }
 
-/* 테블릿 용 css */
+/* 태블릿용 CSS */
 @media all and (min-width:768px) {
-  header .container .logo {
-    margin-left: 20px;
-    text-align: left;
+  .backboard {
+    padding: 28px 0;
   }
-  .content .container section {
-    align-items: center;
+
+/* 컨텐츠 부분 - text */
+  .content {}
+
+  .content .container {
+    width: calc(100% - 76px); /* 태블릿부터 100% - 76px */
+    flex-wrap: nowrap; /* 태블릿부터 nowrap */
   }
-  .content .container section .img {
-    width: 250px;
+
+  .content .container .imgbox {
+    display: block;
+    width: 40%;
+    margin-top: 10px;
+  }
+
+  .content .container .imgbox .imgframe {
+    width: 80%;
+    max-width: 275px;
+  }
+
+  .content .container .imgbox .imgframe img {}
+
+  .content .container .textbox {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width: 60%;
+    margin-top: 0;
+    padding-left: 20px;
+  }
+  
+  .content .container .textbox::before { 
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: block;
+    margin: auto 0;
+    width: 1px;
+    height: calc(100% - 20px);
+    background-color:rgba(0,0,0,.2);
+  }
+
+  .content .container .textbox h2 {
+  }
+
+  .content .container .textbox p {
+    /* padding-left: 20px; */
+    line-height: 1.9;
+  }
+
+  .content .container .textbox p::after { /* 모바일에만 있던 divider 제거 */
+    content: "";
+    display: none;
   }
 }
 
-/* PC용 css */
-@media all and (min-width:960px) {
-  .content .container section .text {
-    margin-top: 0;
-    margin-left: 20px;
-    max-width: 498px;
-    }
+/* PC용 CSS */
+@media all and (min-width:1152px) {
+  section {
+    margin-top: 125px; /* PC부터 마진이 95 에서 125로 증가*/
+  }
+
+  .backboard {
+    margin: 38px auto;
+  }
+
+  /* 헤더 부분 */
+  .headerbox {
+    margin: 0 auto;
+  }
+/* 컨텐츠 부분 - text */
 }
