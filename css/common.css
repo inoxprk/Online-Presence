@@ -57,7 +57,7 @@ section:first-of-type {
   display: flex;
   justify-content: space-between;
 }
-.headerbox .gnbbox .gnb li {}
+
 .headerbox .gnbbox .gnb li a{
   padding:11px 16px;
   font-size: 1rem;
@@ -129,7 +129,6 @@ footer {
   }
 
 /* 컨텐츠 부분 - text */
-  .content {}
 
   .content .container {
     width: calc(100% - 76px); /* 태블릿부터 100% - 76px */
@@ -146,8 +145,6 @@ footer {
     width: 80%;
     max-width: 275px;
   }
-
-  .content .container .imgbox .imgframe img {}
 
   .content .container .textbox {
     position: relative;
@@ -170,9 +167,6 @@ footer {
     width: 1px;
     height: calc(100% - 20px);
     background-color:rgba(0,0,0,.2);
-  }
-
-  .content .container .textbox h2 {
   }
 
   .content .container .textbox p {
