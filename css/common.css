@@ -6,14 +6,15 @@ body {
   background: url(../images/dotted_paper.png) repeat fixed center;
   /* padding: 20px; */
 }
+
 a {
   text-decoration: none;
   color: #333;
 }
 
 .backboard {
-  margin:38px 20px;
-  background-color:#edeef4;
+  margin: 38px 20px;
+  background-color: #edeef4;
   width: fit-content;
   padding: 20px 0;
 }
@@ -29,7 +30,8 @@ section:first-of-type {
 .container {
   max-width: 1132px;
   margin: 0 auto;
-
+  width: calc(100% - 40px);
+  /* 모바일만 100% - 40px */
 }
 
 /* 모바일용 CSS */
@@ -38,8 +40,9 @@ section:first-of-type {
 .headerbox {
   max-width: 1132px;
   margin: 0 20px;
-  padding:20px 0;
+  padding: 20px 0;
 }
+
 .headerbox .logo {
   border-bottom: 1px solid #333;
 }
@@ -48,29 +51,37 @@ section:first-of-type {
   font-family: 'Open Sans', sans-serif;
   font-size: 6rem;
 }
+
 .headerbox .gnbbox {
-  padding:10px 0;
   width: 100%;
   border-bottom: 1px solid #333;
 }
+
 .headerbox .gnbbox .gnb {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-
-.headerbox .gnbbox .gnb li a{
-  padding:11px 16px;
+.headerbox .gnbbox .gnb li a {
+  display: block;
+  padding: 11px 16px;
   font-size: 1rem;
 }
 
 /* 컨텐츠 부분 - text */
 
+.contenttit {
+  margin-bottom: 75px;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .content .container {
-  display: flex; 
-  flex-wrap: wrap; /* 모바일에서만 wrap */
+  display: flex;
+  flex-wrap: wrap;
+  /* 모바일에서만 wrap */
   justify-content: center;
-  width: calc(100% - 40px);
-  /* 모바일만 100% - 40px */
 }
 
 .content .container .imgbox {
@@ -95,22 +106,28 @@ section:first-of-type {
   /* 모바일만 top 마진이 존재 */
 }
 
+.content .container .textbox.noimg:first-of-type {
+  margin-top: 0;
+}
+
 .content .container .textbox h2 {
   font-size: 1.5rem;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 .content .container .textbox p {
   line-height: 1.8;
+  padding-bottom: 20px;
 }
 
-.content .container .textbox p::after { /* 모바일에만 있는 divider */
+.content .container .textbox p::after {
+  /* 모바일에만 있는 divider */
   content: "";
   display: block;
   margin: 95px auto 0;
   height: 2px;
   width: 15%;
-  background-color:rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, .2);
 }
 
 .content:last-of-type .container .textbox p::after {
@@ -128,71 +145,88 @@ footer {
     padding: 28px 0;
   }
 
-/* 컨텐츠 부분 - text */
-
-  .content .container {
-    width: calc(100% - 76px); /* 태블릿부터 100% - 76px */
-    flex-wrap: nowrap; /* 태블릿부터 nowrap */
-  }
-
-  .content .container .imgbox {
-    display: block;
-    width: 40%;
-    margin-top: 10px;
-  }
-
-  .content .container .imgbox .imgframe {
-    width: 80%;
-    max-width: 275px;
-  }
-
-  .content .container .textbox {
-    position: relative;
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    width: 60%;
-    margin-top: 0;
-    padding-left: 20px;
-  }
-  
-  .content .container .textbox::before { 
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: block;
-    margin: auto 0;
-    width: 1px;
-    height: calc(100% - 20px);
-    background-color:rgba(0,0,0,.2);
-  }
-
-  .content .container .textbox p {
-    /* padding-left: 20px; */
-    line-height: 1.9;
-  }
-
-  .content .container .textbox p::after { /* 모바일에만 있던 divider 제거 */
-    content: "";
-    display: none;
-  }
-}
-
-/* PC용 CSS */
-@media all and (min-width:1152px) {
-  section {
-    margin-top: 125px; /* PC부터 마진이 95 에서 125로 증가*/
-  }
-
-  .backboard {
-    margin: 38px auto;
+  .container {
+    width: calc(100% - 76px);
+    /* 태블릿부터 100% - 76px */
   }
 
   /* 헤더 부분 */
-  .headerbox {
-    margin: 0 auto;
+  .headerbox .gnbbox .gnb {
+    flex-direction: row;
+    align-items: flex-start;
   }
-/* 컨텐츠 부분 - text */
-}
+    /* 컨텐츠 부분 - text */
+
+    .content .container {
+      flex-wrap: nowrap;
+      /* 태블릿부터 nowrap */
+    }
+
+    .content .container .imgbox {
+      display: block;
+      width: 40%;
+      margin-top: 10px;
+    }
+
+    .content .container .imgbox .imgframe {
+      width: 80%;
+      max-width: 275px;
+    }
+
+    .content .container .textbox {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      width: 60%;
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    .content .container .textbox.noimg {
+      width: 100%;
+    }
+
+    .content .container .textbox.withimg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: block;
+      margin: auto 0;
+      width: 1px;
+      height: calc(100% - 20px);
+      background-color: rgba(0, 0, 0, .2);
+    }
+
+    .content .container .textbox p {
+      /* padding-left: 20px; */
+      line-height: 1.9;
+    }
+
+    .content .container .textbox p::after {
+      /* 모바일에만 있던 divider 제거 */
+      content: "";
+      display: none;
+    }
+  }
+
+  /* PC용 CSS */
+  @media all and (min-width:1152px) {
+    section {
+      margin-top: 125px;
+      /* PC부터 마진이 95 에서 125로 증가*/
+    }
+
+    .backboard {
+      margin: 38px auto;
+    }
+
+    /* 헤더 부분 */
+    .headerbox {
+      margin: 0 auto;
+    }
+
+    /* 컨텐츠 부분 - text */
+  }
