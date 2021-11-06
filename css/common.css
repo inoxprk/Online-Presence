@@ -105,6 +105,10 @@ section:first-of-type {
   /* 모바일만 top 마진이 존재 */
 }
 
+.content .container .textbox ul {
+  list-style: square;
+}
+
 .content .container .textbox.noimg:first-of-type {
   margin-top: 0;
 }
@@ -112,6 +116,9 @@ section:first-of-type {
 .content .container .textbox h2 {
   font-size: 1.5rem;
   margin-bottom: 30px;
+}
+.content .container .textbox h2.centered {
+  margin: 0 auto 30px;
 }
 
 .content .container .textbox p {
